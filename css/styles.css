@@ -6076,7 +6076,7 @@ a.close.disabled {
 
 .bg-primary {
   background-color: #000a12 !important;
-  background-image: url(../assets/img/always-grey.png);
+  background-image: url(../assets/img/favicon.ico);
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
