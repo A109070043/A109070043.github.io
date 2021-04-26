@@ -52,6 +52,65 @@
                         陳浩揚
                         <br><span class="text-primary">Chen Hao Yang</span>
                     </h1>
+			<p>// YouTubePlayer, YouTube IFrame Player API, YouTubeIFramePlayerAPI
+
+//jsYouTubePlayListID
+
+var tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var YouTubePlayer;
+var YouTubePlayerEnabled = true;
+var YouTubeBox = {
+    Width: 2567,
+    Height: 1695
+};
+var onYouTubeIframeAPIReady = () => {
+    console.log('jsYouTubePlayListID=="' + jsYouTubePlayListID + '"');
+    if (YouTubePlayerEnabled == true) {
+        try {
+            YouTubePlayer = new YT.Player('YouTubePlayer', {
+                width: YouTubeBox.Width,    //"播放器寬度 560 (px)"
+                height: YouTubeBox.Height,  //"播放器高度 316 (px)"
+                //videoId: 'tO7ruzSOA4k',   //"YouTube 影片 ID"
+                playerVars: {
+                    listType: 'playlist', //"播放清單"
+                    list: jsYouTubePlayListID, //"播放清單ID"
+                    autoplay: 1,        //"自動播放影片"
+                    controls: 1,        //"顯示暫停／播放按鈕"
+                    showinfo: 0,        //"隱藏影片標題"
+                    modestbranding: 1,  //"隱藏 YouTube Logo"
+                    loop: 1,            //"影片循環播放"
+                    fs: 1,              //"顯示全螢幕按鈕"
+                    cc_load_policty: 0, //"隱藏字幕"
+                    iv_load_policy: 3,  //"隱藏影片註解"
+                    autohide: 0         //"隱藏影片控制列"
+                },
+                events: {
+                    'onReady': (event) => {
+                        //event.target.mute(); //"播放時靜音"
+                        event.target.playVideo();
+                        console.log('自動播放 YouTube 影片 "' + jsYouTubePlayListID + '"');
+                    }
+                }
+            });
+        }
+        catch (ex) { }
+    }
+}
+
+//"筆記: 播放\停止影片控制命令"
+var YouTubePlayerCommand = () => {
+    YouTubePlayer.playVideo();
+    YouTubePlayer.stopVideo();
+}
+
+/*
+YouTube Player API Reference for iframe Embeds  |  YouTube IFrame Player API  |  Google Developers
+https://developers.google.com/youtube/iframe_api_reference?csw=1
+*/</p>			      
                     <div class="subheading mb-5">
                         新北市 板橋區 滿平街73-2號(3樓)
                         <br>No. 73-2, Manping St., Banqiao Dist., New Taipei City 220104, Taiwan (R.O.C.)
@@ -200,65 +259,6 @@
 												<td>音樂</td>
 												<td>陳浩揚</td>
 												<td><a href="https://drive.google.com/file/d/1dniLXwQx5XW9jxAdnD5yh-UwkJ68CGg_/view?usp=sharing">夜空中最亮的星 阿卡貝拉cover影片</a></td>
-												// YouTubePlayer, YouTube IFrame Player API, YouTubeIFramePlayerAPI
-
-//jsYouTubePlayListID
-
-var tag = document.createElement('script');
-tag.src = "https://www.youtube.com/iframe_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-var YouTubePlayer;
-var YouTubePlayerEnabled = true;
-var YouTubeBox = {
-    Width: 2567,
-    Height: 1695
-};
-var onYouTubeIframeAPIReady = () => {
-    console.log('jsYouTubePlayListID=="' + jsYouTubePlayListID + '"');
-    if (YouTubePlayerEnabled == true) {
-        try {
-            YouTubePlayer = new YT.Player('YouTubePlayer', {
-                width: YouTubeBox.Width,    //"播放器寬度 560 (px)"
-                height: YouTubeBox.Height,  //"播放器高度 316 (px)"
-                //videoId: 'tO7ruzSOA4k',   //"YouTube 影片 ID"
-                playerVars: {
-                    listType: 'playlist', //"播放清單"
-                    list: jsYouTubePlayListID, //"播放清單ID"
-                    autoplay: 1,        //"自動播放影片"
-                    controls: 1,        //"顯示暫停／播放按鈕"
-                    showinfo: 0,        //"隱藏影片標題"
-                    modestbranding: 1,  //"隱藏 YouTube Logo"
-                    loop: 1,            //"影片循環播放"
-                    fs: 1,              //"顯示全螢幕按鈕"
-                    cc_load_policty: 0, //"隱藏字幕"
-                    iv_load_policy: 3,  //"隱藏影片註解"
-                    autohide: 0         //"隱藏影片控制列"
-                },
-                events: {
-                    'onReady': (event) => {
-                        //event.target.mute(); //"播放時靜音"
-                        event.target.playVideo();
-                        console.log('自動播放 YouTube 影片 "' + jsYouTubePlayListID + '"');
-                    }
-                }
-            });
-        }
-        catch (ex) { }
-    }
-}
-
-//"筆記: 播放\停止影片控制命令"
-var YouTubePlayerCommand = () => {
-    YouTubePlayer.playVideo();
-    YouTubePlayer.stopVideo();
-}
-
-/*
-YouTube Player API Reference for iframe Embeds  |  YouTube IFrame Player API  |  Google Developers
-https://developers.google.com/youtube/iframe_api_reference?csw=1
-*/
 												<td>2018/10/30</td>
 												<td></td>
 												<td></td>
