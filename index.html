@@ -58,7 +58,7 @@
                         <br><a href="mailto:name@email.com">A109070043@mail.shu.edu.tw</a>
                     </div>
                     <p class="lead mb-5">嗨!我是浩揚，很高興認識你!我目前就讀世新大學資訊傳播學系一年級，正在學習如何設計網頁，歡迎指教!
-                                         <br>Hi! I'm Hao Yang, nice to meet you!
+                                         <br>Hi! I'm Hao Young, nice to meet you!
                                          <br>I am currently studying in the first year of the Department of Information and Communication at Shih Hsin University, and I am learning how to design web pages. Welcome! </p>
                     <div class="social-icons">
                         <a class="social-icon" href="https://www.instagram.com/five030529/?hl=zh-tw"><i class="fab fa-instagram"></i></a>
@@ -199,7 +199,68 @@
 											<tr>
 												<td>音樂</td>
 												<td>陳浩揚</td>
-												<td><a href="https://drive.google.com/file/d/1dniLXwQx5XW9jxAdnD5yh-UwkJ68CGg_/view?usp=sharing">夜空中最亮的星 阿卡貝拉cover影片</a></td>
+												<td><a href="https://drive.google.com/file/d/1dniLXwQx5XW9jxAdnD5yh-UwkJ68CGg_/view?usp=sharing">夜空中最亮的星 阿卡貝拉cover影片
+												<br>// YouTubePlayer, YouTube IFrame Player API, YouTubeIFramePlayerAPI
+
+//jsYouTubePlayListID
+
+var tag = document.createElement('script');
+tag.src = "https://drive.google.com/file/d/1dniLXwQx5XW9jxAdnD5yh-UwkJ68CGg_/view?usp=sharing";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var YouTubePlayer;
+var YouTubePlayerEnabled = true;
+var YouTubeBox = {
+    Width: 2567,
+    Height: 1695
+};
+var onYouTubeIframeAPIReady = () => {
+    console.log('jsYouTubePlayListID=="' + jsYouTubePlayListID + '"');
+    if (YouTubePlayerEnabled == true) {
+        try {
+            YouTubePlayer = new YT.Player('YouTubePlayer', {
+                width: YouTubeBox.Width,    //"播放器寬度 560 (px)"
+                height: YouTubeBox.Height,  //"播放器高度 316 (px)"
+                //videoId: 'tO7ruzSOA4k',   //"YouTube 影片 ID"
+                playerVars: {
+                    listType: 'playlist', //"播放清單"
+                    list: jsYouTubePlayListID, //"播放清單ID"
+                    autoplay: 1,        //"自動播放影片"
+                    controls: 1,        //"顯示暫停／播放按鈕"
+                    showinfo: 0,        //"隱藏影片標題"
+                    modestbranding: 1,  //"隱藏 YouTube Logo"
+                    loop: 1,            //"影片循環播放"
+                    fs: 1,              //"顯示全螢幕按鈕"
+                    cc_load_policty: 0, //"隱藏字幕"
+                    iv_load_policy: 3,  //"隱藏影片註解"
+                    autohide: 0         //"隱藏影片控制列"
+                },
+                events: {
+                    'onReady': (event) => {
+                        //event.target.mute(); //"播放時靜音"
+                        event.target.playVideo();
+                        console.log('自動播放 YouTube 影片 "' + jsYouTubePlayListID + '"');
+                    }
+                }
+            });
+        }
+        catch (ex) { }
+    }
+}
+
+//"筆記: 播放\停止影片控制命令"
+var YouTubePlayerCommand = () => {
+    YouTubePlayer.playVideo();
+    YouTubePlayer.stopVideo();
+}
+
+/*
+YouTube Player API Reference for iframe Embeds  |  YouTube IFrame Player API  |  Google Developers
+https://developers.google.com/youtube/iframe_api_reference?csw=1
+*/
+		   </br>
+												</a></td>
 												<td>2018/10/30</td>
 												<td></td>
 												<td></td>
